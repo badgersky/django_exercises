@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from hello_app import urls as hello_urls
 from random_app import urls as random_urls
+from calculator import urls as calc_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(hello_urls)),
     path('', include(random_urls)),
+    path('', include(calc_urls))
 ]
