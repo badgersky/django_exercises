@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from hello_app import urls
+from hello_app import urls as hello_urls
+from random_app import urls as random_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(urls))
+    path('', include(hello_urls)),
+    path('', include(random_urls)),
 ]
