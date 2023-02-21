@@ -20,3 +20,27 @@ class Band(models.Model):
 
     def __str__(self):
         return f'{self.pk}, {self.name}, {self.year}'
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=64)
+    description = models.TextField(null=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
+class Article(models.Model):
+
+    class Status(models.IntegerChoices):
+        STILL_WRITING = 0
+        AWAITS_REVIEW = 1
+        PUBLISHED = 2
+
+    title = models.CharField(max_length=128)
+    author = models.CharField(max_length=64, null=True)
+    content = models.TextField()
+    date_added = models.DateField(auto_now_add=True)
+    status = models.IntegerField(choices=Status.choices, default=0)
+    start_date = models.DateField(null=True)
+    stop_date = models.DateField(null=True)
