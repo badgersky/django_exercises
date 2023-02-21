@@ -44,3 +44,24 @@ class Article(models.Model):
     status = models.IntegerField(choices=Status.choices, default=0)
     start_date = models.DateField(null=True)
     stop_date = models.DateField(null=True)
+
+    def __str__(self):
+        return f'{self.title}, {self.author}'
+
+
+class Album(models.Model):
+
+    class Rating(models.TextChoices):
+        ZERO = ''
+        ONE = '*'
+        TWO = '*' * 2
+        THREE = '*' * 3
+        FOUR = '*' * 4
+        FIVE = '*' * 5
+
+    title = models.CharField(max_length=64)
+    year = models.IntegerField()
+    rating = models.CharField(choices=Rating.choices, max_length=5)
+
+    def __str__(self):
+        return f'{self.title}, {self.rating}'
