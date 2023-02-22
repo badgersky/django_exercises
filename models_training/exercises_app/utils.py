@@ -1,5 +1,5 @@
 from random import randint, choice
-from exercises_app.models import Band
+from exercises_app.models import Band, Article
 from string import ascii_lowercase
 
 
@@ -22,7 +22,7 @@ def get_bands_without_year():
 
 
 def get_bands_without_genre():
-    return Band.objects.filter(genre=-1)
+    return Band.objects.filter(genre=Band.Genre.NOT_DEFINED)
 
 
 def generate_article_content():
@@ -38,6 +38,10 @@ def generate_title():
 def generate_author_name():
     author_name = [choice(ascii_lowercase) for _ in range(20)]
     return ''.join(author_name).title()
+
+
+def get_published_articles():
+    return Article.objects.filter(status=Article.Status.PUBLISHED)
 
 
 if __name__ == '__main__':

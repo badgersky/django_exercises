@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from exercises_app.views import show_published_articles
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('articles/', show_published_articles)
 ]
