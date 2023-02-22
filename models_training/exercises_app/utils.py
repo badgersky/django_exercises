@@ -1,4 +1,5 @@
 from random import randint, choice
+from exercises_app.models import Band
 
 
 def load_bands():
@@ -13,6 +14,14 @@ def generate_bands_data():
     genre = randint(0, 6)
     still_active = choice(['True', 'False'])
     return year, still_active, genre
+
+
+def get_bands_without_year():
+    return Band.objects.filter(year=None)
+
+
+def get_bands_without_genre():
+    return Band.objects.filter(genre=-1)
 
 
 if __name__ == '__main__':
