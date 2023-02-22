@@ -66,3 +66,10 @@ class Album(models.Model):
 
     def __str__(self):
         return f'{self.title}, {self.rating}'
+
+
+class Song(models.Model):
+    title = models.CharField(max_length=128)
+    duration = models.TimeField(null=True)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    
