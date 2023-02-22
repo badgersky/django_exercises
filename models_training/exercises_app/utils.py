@@ -51,5 +51,9 @@ def generate_album_data():
     return album_title, year, rating
 
 
+def generate_song_title():
+    return 'title'
+
+
 if __name__ == '__main__':
     pass
