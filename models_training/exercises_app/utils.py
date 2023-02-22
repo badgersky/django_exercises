@@ -1,5 +1,6 @@
 from random import randint, choice
 from exercises_app.models import Band
+from string import ascii_lowercase
 
 
 def load_bands():
@@ -22,6 +23,21 @@ def get_bands_without_year():
 
 def get_bands_without_genre():
     return Band.objects.filter(genre=-1)
+
+
+def generate_article_content():
+    content = [choice(ascii_lowercase) for _ in range(3000)]
+    return ''.join(content)
+
+
+def generate_title():
+    name = [choice(ascii_lowercase) for _ in range(25)]
+    return ''.join(name).title()
+
+
+def generate_author_name():
+    author_name = [choice(ascii_lowercase) for _ in range(20)]
+    return ''.join(author_name).title()
 
 
 if __name__ == '__main__':
