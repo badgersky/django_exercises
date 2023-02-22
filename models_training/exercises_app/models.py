@@ -62,6 +62,7 @@ class Album(models.Model):
     title = models.CharField(max_length=64)
     year = models.IntegerField()
     rating = models.CharField(choices=Rating.choices, max_length=5)
+    band = models.ForeignKey(Band, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.title}, {self.rating}'

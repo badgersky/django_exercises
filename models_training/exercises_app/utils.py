@@ -44,5 +44,12 @@ def get_published_articles():
     return Article.objects.filter(status=Article.Status.PUBLISHED)
 
 
+def generate_album_data():
+    album_title = 'title'
+    year = randint(1960, 2020)
+    rating = randint(0, 5)
+    return album_title, year, rating
+
+
 if __name__ == '__main__':
     pass
