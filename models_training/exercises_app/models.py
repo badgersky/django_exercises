@@ -83,4 +83,3 @@ class Position(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=128)
     position = models.OneToOneField(Position, on_delete=models.CASCADE)
-    

@@ -55,5 +55,9 @@ def generate_song_title():
     return 'title'
 
 
+def get_band(band_id):
+    return Band.objects.get(pk=band_id)
+
+
 if __name__ == '__main__':
     pass
