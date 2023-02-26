@@ -44,6 +44,7 @@ class Article(models.Model):
     status = models.IntegerField(choices=Status.choices, default=0)
     start_date = models.DateField(null=True)
     stop_date = models.DateField(null=True)
+    category = models.ManyToManyField(Category)
 
     def __str__(self):
         return f'{self.title}, {self.author}'
