@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'movie_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'models_training_db',
+        'NAME': 'movie_service_db',
         'USER': 'postgres',
         'PASSWORD': 'coderslab',
         'HOST': 'localhost',
