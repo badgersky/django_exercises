@@ -5,11 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-    <li>director: {{ movie.director }}</li>
-    <li>screenplay: {{ movie.screenplay }}</li>
-    <li>rating: {{ movie.rating }}</li>
-    <li>year: {{ movie.year }}</li>
-</ul>
+    director: {{ movie.director }}<br>
+    screenplay: {{ movie.screenplay }}<br>
+    starring:
+    <ul>
+        {% for actor in actors %}
+            <li>{{ actor }}</li>
+        {% endfor %}
+    </ul>
+    rating: {{ movie.rating }}<br>
+    year: {{ movie.year }}<br>
 </body>
 </html>

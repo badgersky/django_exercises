@@ -21,4 +21,5 @@ def load_movies():
 
 def load_move_by_id(movie_id):
     movie = Movie.objects.get(pk=movie_id)
-    return movie
+    actors = PersonMovie.objects.filter(movie_id=movie_id)
+    return movie, actors

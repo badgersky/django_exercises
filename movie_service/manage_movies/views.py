@@ -8,5 +8,8 @@ def view_listed_movies(request):
 
 
 def view_movie_details(request, movie_id):
-    movie = load_move_by_id(movie_id)
-    return render(request, 'manage_movies/movie_details.html', context={'movie': movie})
+    movie, actors = load_move_by_id(movie_id)
+    return render(request, 'manage_movies/movie_details.html', context={
+        'movie': movie,
+        'actors': actors,
+        })

@@ -30,3 +30,6 @@ class PersonMovie(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     role = models.CharField(max_length=128, null=True)
+
+    def __str__(self):
+        return self.person.first_name
