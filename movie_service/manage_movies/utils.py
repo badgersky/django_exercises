@@ -12,3 +12,8 @@ def generate_genre_data():
     for i in range(15):
         genre_name = 'genre' + str(i)
         Genre.objects.create(name=genre_name)
+
+
+def load_movies():
+    movies = Movie.objects.order_by('year').reverse()
+    return movies

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for movie in movies %}
+        <li>
+            <a href="movie-details/{{ movie.id }}">{{ movie.title }}</a>,
+            {{ movie.year }},
+            {{ movie.director.last_name }},
+            {{ movie.rating }}
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
