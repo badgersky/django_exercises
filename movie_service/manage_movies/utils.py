@@ -17,3 +17,8 @@ def generate_genre_data():
 def load_movies():
     movies = Movie.objects.order_by('year').reverse()
     return movies
+
+
+def load_move_by_id(movie_id):
+    movie = Movie.objects.get(pk=movie_id)
+    return movie
