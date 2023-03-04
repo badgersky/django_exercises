@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    table, td {
+        border-collapse: collapse;
+        border: 2px solid black;
+        padding: 4px;
+    }
+    </style>
+</head>
+<body>
+<table>
+    {% for line in table %}
+        <tr>
+            {% for number in line %}
+                <td>{{ number }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

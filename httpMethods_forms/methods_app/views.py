@@ -16,3 +16,20 @@ def generate_number(request):
             return HttpResponse(', '.join(str(i) for i in range(smaller, bigger + 1)))
     else:
         return HttpResponse(f'Nie rozumiem metody http: {request.method}')
+
+
+def generate_multiplication_tablet(request):
+    if request.method == 'GET':
+        try:
+            width = int(request.GET['width'])
+            height = int(request.GET['height'])
+        except MultiValueDictKeyError:
+            return HttpResponse('podałeś niepoprawne dane.')
+        else:
+            multiplication_table = []
+            for n1 in range(1, height + 1):
+                for n2 in range(1, width + 1):
+                    multiplication_table.append(n1 * n2)
+
+            table = [multiplication_table[i:i+width] for i in range(0, len(multiplication_table), width)]
+            return render(request, 'methods_app/multiplication_table.html', context={'table': table})
