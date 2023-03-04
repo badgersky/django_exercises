@@ -33,3 +33,5 @@ def generate_multiplication_tablet(request):
 
             table = [multiplication_table[i:i+width] for i in range(0, len(multiplication_table), width)]
             return render(request, 'methods_app/multiplication_table.html', context={'table': table})
+    else:
+        return HttpResponse(f'Unknown method: {request.method}')
