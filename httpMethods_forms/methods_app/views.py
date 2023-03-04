@@ -24,7 +24,7 @@ def generate_multiplication_tablet(request):
             width = int(request.GET['width'])
             height = int(request.GET['height'])
         except MultiValueDictKeyError:
-            return HttpResponse('podałeś niepoprawne dane.')
+            return HttpResponse('Wrong data')
         else:
             multiplication_table = []
             for n1 in range(1, height + 1):
