@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'methods_app',
     'form_training',
+    'football',
 ]
 
 MIDDLEWARE = [
