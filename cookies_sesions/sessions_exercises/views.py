@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 
 
@@ -41,3 +41,16 @@ def log_greet_user(request):
         name = request.POST['name']
         request.session['LoggedUser'] = name
         return HttpResponse(f'Hello {name.title}')
+
+
+def add_session(request):
+    if request.method == 'GET':
+        return render(request, 'session_exercises/add_session.html')
+    elif request.method == 'POST':
+        session_key = request.POST['key']
+        session_value = request.POST['value']
+        if session_key in request.session:
+            return HttpResponse(f'session already exists')
+        else:
+            request.session[session_key] = session_value
+            return HttpResponse(f'session created')
