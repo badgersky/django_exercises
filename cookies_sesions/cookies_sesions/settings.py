@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cookies_exercises',
     'sessions_exercises',
+    'class_view_exercises',
 ]
 
 MIDDLEWARE = [
