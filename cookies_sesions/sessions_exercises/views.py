@@ -15,6 +15,7 @@ def show_session(request):
         return HttpResponse(f'no session named: "counter"')
     else:
         session_value = request.session['counter']
+        request.session['counter'] += 1
         return HttpResponse(f'active session: counter: {session_value}')
 
 
