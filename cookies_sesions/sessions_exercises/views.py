@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 
@@ -54,3 +54,11 @@ def add_session(request):
         else:
             request.session[session_key] = session_value
             return HttpResponse(f'session created')
+
+
+def show_multi_sessions(request):
+    if len(dict(request.session)) == 0:
+        return redirect('add_session')
+    else:
+        sessions = request.session
+        return render(request, 'session_exercises/show-sessions.html', context={'sessions': sessions})

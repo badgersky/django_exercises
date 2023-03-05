@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table td {
+            border-collapse: separate;
+            border: 2px solid black;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    {% for session_name, session_value in sessions.items %}
+        <tr>
+            <td>{{ session_name }}</td>
+            <td>{{ session_value }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
