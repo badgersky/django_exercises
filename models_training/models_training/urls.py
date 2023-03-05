@@ -20,6 +20,6 @@ from exercises_app.views import show_published_articles, show_band_data, AddBand
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', show_published_articles),
-    path('show-band/<int:band_id>', show_band_data),
+    path('show-band/<band_id>/', show_band_data),
     path('add-band/', AddBand.as_view()),
 ]

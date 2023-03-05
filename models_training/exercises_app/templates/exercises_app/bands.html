@@ -5,9 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-    name: {{ name }}<br>
-    genre: {{ genre }}<br>
-    year: {{ year }}<br>
-    still active: {{ active }}
+    <h2>{{ band.name }}</h2>
+<ul>
+    <li>Genre:</li>{{ band.get_genre_display }}
+    <li>Year:</li>{{ band.year }}
+    <li>Active?:</li>{{ band.still_active }}
+</ul>
 </body>
 </html>
