@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from cookies_exercises import urls as cookies_urls
+from sessions_exercises import urls as session_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(cookies_urls)),
+    path('', include(session_urls)),
 ]
