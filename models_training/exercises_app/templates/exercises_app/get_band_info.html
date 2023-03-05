@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <label>Name<input type="text" name="name"></label><br>
+    <label>Year<input type="text" name="year"></label><br>
+    <label>Active<input type="radio" name="still_active" value="True"></label><br>
+    <label>Not active<input type="radio" name="still_active" value="False"></label><br>
+    <label for="genre">Chose genre</label><br>
+    <select id="genre" name="genre">
+        {% for genre in genres %}
+            <option value="{{ genre }}">{{ genre.name }}</option>
+        {% endfor %}
+    </select><br>
+    <label><input type="submit" value="Save"></label>
+</form>
+</body>
+</html>
