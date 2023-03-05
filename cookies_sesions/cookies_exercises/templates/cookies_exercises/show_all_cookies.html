@@ -13,10 +13,10 @@
 </head>
 <body>
 <table>
-    {% for user, cookie_name in cookies.items %}
+    {% for cookie_name, value in cookies.items %}
         <tr>
-            <td>{{ user }}</td>
             <td>{{ cookie_name }}</td>
+            <td>{{ value }}</td>
         </tr>
     {% endfor %}
 </table>
