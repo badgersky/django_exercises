@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cookies_exercises',
+    'sessions_exercises',
 ]
 
 MIDDLEWARE = [
