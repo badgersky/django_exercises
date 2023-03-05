@@ -20,11 +20,15 @@ def show_session(request):
 
 
 def delete_session(request):
-    if 'counter' in request.session:
-        del request.session['counter']
-        return HttpResponse(f'Session deleted')
-    else:
-        return HttpResponse(f'no such session: "counter"')
+    if request.method == 'GET':
+        return render(request, 'session_exercises/delete_session.html')
+    elif request.method == 'POST':
+        session_name = request.POST['session']
+        if session_name in request.session:
+            del request.session[session_name]
+            return HttpResponse(f'Session deleted')
+        else:
+            return HttpResponse(f'no such session: {session_name}')
 
 
 def log_greet_user(request):
