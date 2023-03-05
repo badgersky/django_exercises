@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 
@@ -26,3 +26,14 @@ def delete_session(request):
     else:
         return HttpResponse(f'no such session: "counter"')
 
+
+def log_greet_user(request):
+    if request.method == 'GET':
+        if 'LoggedUser' in request.session:
+            return HttpResponse(f'Hello again {request.session["LoggedUser"]}')
+        else:
+            return render(request, 'session_exercises/login.html')
+    elif request.method == 'POST':
+        name = request.POST['name']
+        request.session['LoggedUser'] = name
+        return HttpResponse(f'Hello {name.title}')
