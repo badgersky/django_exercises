@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GamesPlayed</title>
+    <style>
+        table, td, th {
+            border-collapse: collapse;
+            border: 2px solid #1b1b1b;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Team Home</th>
+        <th>Team Away</th>
+        <th>Score</th>
+    </tr>
+    {% for game in games_home %}
+        <tr>
+            <td>{{ game.team_home }}</td>
+            <td>{{ game.team_away }}</td>
+            <td>{{ game.team_home_goals }}:{{ game.team_away_goals }}</td>
+        </tr>
+    {% endfor %}
+    {% for game in games_away %}
+        <tr>
+            <td>{{ game.team_home }}</td>
+            <td>{{ game.team_away }}</td>
+            <td>{{ game.team_home_goals }}:{{ game.team_away_goals }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
