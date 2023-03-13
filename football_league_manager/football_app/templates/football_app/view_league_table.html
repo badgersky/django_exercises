@@ -21,7 +21,7 @@
     {% for pos, team in teams.items %}
         <tr>
             <td>{{ pos }}</td>
-            <td>{{ team.name }}</td>
+            <td><a href="/games/{{ team.id }}/">{{ team.name }}</a></td>
             <td>{{ team.points }}</td>
         </tr>
     {% endfor %}
