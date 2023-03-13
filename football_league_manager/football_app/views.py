@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from football_app.models import Team, Game
+from django.utils.datastructures import MultiValueDictKeyError
 from django.http import HttpResponse
 
 
@@ -17,3 +18,29 @@ def games_played(request, team_id):
         'games_away': games_away,
         })
 
+
+def add_game(request):
+    if request.method == 'GET':
+        teams = Team.objects.all()
+        return render(request, 'football_app/add_game.html', {'teams': teams})
+    elif request.method == 'POST':
+        try:
+            team_home_name = request.POST['team_home']
+            team_away_name = request.POST['team_away']
+            if team_home_name == team_away_name:
+                return HttpResponse('Team cannot play against itself')
+            else:
+                team_home = Team.objects.get(name=team_home_name)
+                team_away = Team.objects.get(name=team_away_name)
+                home_goals = int(request.POST['home_goals'])
+                away_goals = int(request.POST['away_goals'])
+        except MultiValueDictKeyError:
+            return HttpResponse('Invalid input data')
+        else:
+            Game.objects.create(
+                team_home=team_home,
+                team_away=team_away,
+                team_home_goals=home_goals,
+                team_away_goals=away_goals
+                )
+            return redirect('played_games', team_id=team_home.id)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AddGame</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    <label>Chose team home<select name="team_home">
+        {% for team in teams %}
+            <option>{{ team }}</option>
+        {% endfor %}
+    </select></label><br>
+    <label>Chose team away<select name="team_away">
+        {% for team in teams %}
+            <option>{{ team }}</option>
+        {% endfor %}
+    </select></label><br>
+    <label>Team home goals<input type="number" min="0" name="home_goals"></label><br>
+    <label>Team away goals<input type="number" min="0" name="away_goals"></label><br>
+    <label><input type="submit" value="Add game"></label>
+</form>
+</body>
+</html>
