@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeagueTable</title>
+    <style>
+        table, td, th {
+            border-collapse: collapse;
+            border: 2px solid #1b1b1b;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Points</th>
+    </tr>
+    {% for pos, team in teams.items %}
+        <tr>
+            <td>{{ pos }}</td>
+            <td>{{ team.name }}</td>
+            <td>{{ team.points }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
