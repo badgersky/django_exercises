@@ -42,5 +42,16 @@ def add_game(request):
                 team_away=team_away,
                 team_home_goals=home_goals,
                 team_away_goals=away_goals
-                )
+            )
+            if home_goals > away_goals:
+                team_home.points += 3
+                team_home.save()
+            elif home_goals == away_goals:
+                team_home.points += 1
+                team_away.points += 1
+                team_home.save()
+                team_away.save()
+            elif away_goals > home_goals:
+                team_away.points += 3
+                team_away.save()
             return redirect('played_games', team_id=team_home.id)
